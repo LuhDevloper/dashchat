@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "./LoginPage.module.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Corrigido para importar axios
+import axios from "axios";
 
 function LoginPage() {
-  const navigate = useNavigate(); // Colocar o hook dentro do componente
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    usuario: "",          // Corrigido para 'usuario'
-    senha: ""             // Corrigido para 'senha'
+    usuario: "",
+    senha: ""
   });
 
   const handleChange = (e) => {
@@ -20,11 +20,11 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", {
-        usuario: formData.usuario,  // Enviando os dados de login
+      const response = await axios.post("https://dashchat-tan.vercel.app/api/login", {
+        usuario: formData.usuario,
         senha: formData.senha
       });
-      alert(response.data.message); // Exibe a resposta da API
+      alert(response.data.message);
       localStorage.setItem('usuario', formData.usuario);
       navigate('/inicio');
     } catch (error) {
@@ -33,21 +33,20 @@ function LoginPage() {
     }
   };
 
-
   const handleRegisterRedirect = () => {
-    navigate("/cadastro"); // Redireciona para a página de cadastro
+    navigate("/cadastro");
   };
 
   return (
     <div className={styles.containerIndex}>
-      <form method="POST" onSubmit={handleSubmit} className={styles.formLogin}> {/* Removido action="#" e adicionado onSubmit */}
+      <form method="POST" onSubmit={handleSubmit} className={styles.formLogin}>
         <h1 className={styles.titleForm}>DashChat</h1>
 
         <div className={styles.inputGroup}>
           <label htmlFor="usuario">Usuário</label>
           <input
             type="text"
-            name="usuario"  // Corrigido para 'usuario' que é o nome da variável
+            name="usuario"
             id="usuario"
             placeholder="Digite seu usuário"
             value={formData.usuario}
@@ -60,7 +59,7 @@ function LoginPage() {
           <label htmlFor="senha">Senha</label>
           <input
             type="password"
-            name="senha"  // Corrigido para 'senha' que é o nome da variável
+            name="senha"
             id="senha"
             placeholder="Digite sua senha"
             value={formData.senha}

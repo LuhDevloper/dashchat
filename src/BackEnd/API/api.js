@@ -3,11 +3,11 @@ import mysql from 'mysql2';
 import bcrypt from 'bcrypt';
 import cors from 'cors';
 
-const portRunning = 3000;
+const portRunning = process.env.PORT || 3000;  // Para garantir que a porta seja configurada dinamicamente no Vercel
 const app = express();
-const hostDb = 'localhost';
-const userDb = 'root';
-const passDb = '';
+const hostDb = 'localhost';  // Se você for usar no Vercel, vai ter que configurar o banco no Vercel também
+const userDb = 'root';      // Ajuste de acordo com suas configurações do banco local ou remoto
+const passDb = '';          // Ajuste conforme necessário
 const dbName = 'dashchat';
 const saltRounds = 10;
 
@@ -45,7 +45,7 @@ pool.query(createTable, (err, result) => {
 });
 
 // Rota para login
-app.post('/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { usuario, senha } = req.body;
   
   if (!usuario || !senha) {
@@ -78,7 +78,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Rota para cadastro
-app.post('/cadastro', async (req, res) => {
+app.post('/api/cadastro', async (req, res) => {
   const { usuario, email, senha } = req.body;
 
   // Validação de campos obrigatórios
@@ -124,6 +124,7 @@ app.post('/cadastro', async (req, res) => {
   });
 });
 
+// Iniciar o servidor na porta configurada
 app.listen(portRunning, () => {
   console.log(`Servidor iniciado na porta ${portRunning}`);
 });

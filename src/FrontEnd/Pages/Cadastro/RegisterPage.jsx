@@ -4,10 +4,10 @@ import axios from "axios";
 
 function RegisterPage() {
     const [formData, setFormData] = useState({
-        usuario: "",          // Corrigido para 'usuario'
+        usuario: "",
         email: "",
-        senha: "",            // Corrigido para 'senha'
-        confirmarSenha: ""    // Corrigido para 'confirmarSenha'
+        senha: "",
+        confirmarSenha: ""
     });
 
     const handleChange = (e) => {
@@ -24,7 +24,7 @@ function RegisterPage() {
             return;
         }
         try {
-            const response = await axios.post("http://localhost:3000/cadastro",{
+            const response = await axios.post("https://dashchat-tan.vercel.app/api/cadastro", {
                 usuario: formData.usuario,
                 email: formData.email,
                 senha: formData.senha
@@ -32,9 +32,9 @@ function RegisterPage() {
             console.log("Cadastro realizado com sucesso:", response.data);
             alert(response.data.message);
         } catch (error) {
-            console.log(error)
+            console.error("Erro no cadastro:", error);
+            alert("Erro no cadastro");
         }
-        // Lógica de cadastro (envio para a API, por exemplo)
         console.log("Formulário enviado", formData);
     };
 
@@ -47,9 +47,9 @@ function RegisterPage() {
                     <label htmlFor="usuario">Nome de Usuário</label>
                     <input
                         type="text"
-                        name="usuario" // Nome do campo corrigido para 'usuario'
+                        name="usuario"
                         id="usuario"
-                        value={formData.usuario} // Corrigido para 'usuario'
+                        value={formData.usuario}
                         onChange={handleChange}
                         placeholder="Escolha um nome de usuário"
                         required
@@ -73,9 +73,9 @@ function RegisterPage() {
                     <label htmlFor="senha">Senha</label>
                     <input
                         type="password"
-                        name="senha" // Nome do campo corrigido para 'senha'
+                        name="senha"
                         id="senha"
-                        value={formData.senha} // Corrigido para 'senha'
+                        value={formData.senha}
                         onChange={handleChange}
                         placeholder="Digite sua senha"
                         required
@@ -86,9 +86,9 @@ function RegisterPage() {
                     <label htmlFor="confirmarSenha">Confirmar Senha</label>
                     <input
                         type="password"
-                        name="confirmarSenha" // Nome do campo corrigido para 'confirmarSenha'
+                        name="confirmarSenha"
                         id="confirmarSenha"
-                        value={formData.confirmarSenha} // Corrigido para 'confirmarSenha'
+                        value={formData.confirmarSenha}
                         onChange={handleChange}
                         placeholder="Confirme sua senha"
                         required
