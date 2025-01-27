@@ -20,7 +20,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/login", {
+      const response = await axios.post("https://dashchat-tan.vercel.app/login", {
         usuario: formData.usuario,  // Enviando os dados de login
         senha: formData.senha
       });
