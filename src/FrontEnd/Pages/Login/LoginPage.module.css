@@ -1,0 +1,121 @@
+@import url('../../Assets/css/variables.css');
+
+.containerIndex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--backgroundColor);
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço um pouco maior entre os elementos do formulário */
+    background-color: #fff;
+    padding: 25px; /* Maior espaçamento interno para um visual mais confortável */
+    border-radius: 10px; /* Bordas um pouco mais arredondadas */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra mais suave e maior */
+    width: 350px; /* Largura ligeiramente maior */
+    text-align: center;
+}
+
+.titleForm {
+    font-size: 28px; /* Aumento no tamanho da fonte para o título */
+    margin-bottom: 25px; /* Mais espaço abaixo do título */
+    color: var(--textColor);
+    font-weight: bold; /* Deixar o título mais forte visualmente */
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column; /* Alinha rótulo e input verticalmente */
+    align-items: flex-start;
+}
+
+label {
+    margin-bottom: 6px; /* Aumenta um pouco o espaço entre rótulo e input */
+    font-size: 16px; /* Aumenta o tamanho da fonte do rótulo */
+    color: var(--labelColor);
+}
+
+input {
+    text-transform: capitalize;
+    width: 100%;
+    padding: 12px; /* Aumenta o padding para um input mais confortável */
+    margin-bottom: 18px; /* Um pouco mais de espaço entre os campos */
+    border: 1px solid var(--borderColor);
+    border-radius: 8px; /* Bordas mais arredondadas nos inputs */
+    font-size: 16px; /* Aumento do tamanho da fonte para os inputs */
+    transition: border-color 0.3s ease; /* Transição suave ao focar no input */
+}
+
+/* Estado de foco dos inputs */
+input:focus {
+    outline: none;
+    border-color: var(--corDoBotao);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--corDoBotao);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px; /* Tamanho de fonte maior no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transição suave no hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Cor de hover ajustada */
+}
+
+.rodapeDescricao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35px; /* Aumenta a altura do rodapé para mais conforto */
+    font-size: 15px; /* Aumenta o tamanho da fonte no rodapé */
+    color: #777;
+}
+
+.rodapeDescricao > span {
+    font-weight: bold; /* Deixar o texto em negrito para destacar */
+    margin: 5px 0;
+}
+
+.rodapeDescricao button {
+    font-weight: normal; /* Deixar o texto do botão com peso normal */
+    color: var(--corDoBotao);
+    background: none; /* Retirar o fundo do botão */
+    border: none;
+    text-decoration: underline; /* Adicionar underline no botão */
+}
+
+.rodapeDescricao button:hover {
+    background: none;
+    color: #45a049; /* Cor de hover no botão */
+}
+
+/* Estilos responsivos */
+@media (max-width: 480px) {
+    .formLogin {
+        width: 90%;
+        padding: 20px; /* Ajuste do padding em telas menores */
+    }
+
+    .titleForm {
+        font-size: 24px; /* Reduz o tamanho do título em telas pequenas */
+    }
+
+    .inputGroup label {
+        font-size: 14px; /* Reduz o tamanho do rótulo em telas pequenas */
+    }
+
+    input, button {
+        font-size: 14px; /* Ajusta o tamanho da fonte nos inputs e botão */
+    }
+}

@@ -1,0 +1,7 @@
+:root {
+    --corDoBotao: #4CAF50;  /* Button color */
+    --backgroundColor: #f4f4f4;
+    --borderColor: #ccc;
+    --labelColor: #555;
+    --textColor: #333;
+}
