@@ -24,7 +24,7 @@ function RegisterPage() {
             return;
         }
         try {
-            const response = await axios.post("https://dashchat-tan.vercel.app/cadastro",{
+            const response = await axios.post("http://localhost:3000/cadastro",{
                 usuario: formData.usuario,
                 email: formData.email,
                 senha: formData.senha
